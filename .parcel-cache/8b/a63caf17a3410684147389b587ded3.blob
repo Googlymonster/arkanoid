@@ -1,0 +1,72 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.Paddle = void 0;
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+class Paddle {
+  constructor(speed, paddleWidth, paddleHeight, position, image) {
+    _defineProperty(this, "paddleImage", new Image());
+
+    _defineProperty(this, "handleKeyUp", e => {
+      if (e.code === "ArrowLeft" || e.key === "ArrowLeft") this.moveLeft = false;
+      if (e.code === "ArrowRight" || e.key === "ArrowRight") this.moveRight = false;
+    });
+
+    _defineProperty(this, "handleKeyDown", e => {
+      if (e.code === "ArrowLeft" || e.key === "ArrowLeft") this.moveLeft = true;
+      if (e.code === "ArrowRight" || e.key === "ArrowRight") this.moveRight = true;
+    });
+
+    this.speed = speed;
+    this.paddleWidth = paddleWidth;
+    this.paddleHeight = paddleHeight;
+    this.position = position;
+    this.speed = speed;
+    this.paddleWidth = paddleWidth;
+    this.paddleHeight = paddleHeight;
+    this.position = position;
+    this.moveLeft = false;
+    this.moveRight = false;
+    this.paddleImage.src = image; // Event Listeners
+
+    document.addEventListener('keydown', this.handleKeyDown);
+    document.addEventListener('keyup', this.handleKeyUp);
+  } // Getters
+
+
+  get width() {
+    return this.paddleWidth;
+  }
+
+  get height() {
+    return this.paddleHeight;
+  }
+
+  get pos() {
+    return this.position;
+  }
+
+  get image() {
+    return this.paddleImage;
+  }
+
+  get isMovingLeft() {
+    return this.moveLeft;
+  }
+
+  get isMovingRight() {
+    return this.moveRight;
+  }
+
+  movePaddle() {
+    if (this.moveLeft) this.pos.x -= this.speed;
+    if (this.moveRight) this.pos.x += this.speed;
+  }
+
+}
+
+exports.Paddle = Paddle;

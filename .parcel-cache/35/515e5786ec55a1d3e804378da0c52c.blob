@@ -1,0 +1,53 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.Brick = void 0;
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+class Brick {
+  constructor(brickWidth, brickHeight, position, brickEnergy, image) {
+    _defineProperty(this, "brickImage", new Image());
+
+    this.brickWidth = brickWidth;
+    this.brickHeight = brickHeight;
+    this.position = position;
+    this.brickEnergy = brickEnergy;
+    this.brickWidth = brickWidth;
+    this.brickHeight = brickHeight;
+    this.position = position;
+    this.brickEnergy = brickEnergy;
+    this.brickImage.src = image;
+  } // Getters
+
+
+  get width() {
+    return this.brickWidth;
+  }
+
+  get height() {
+    return this.brickHeight;
+  }
+
+  get pos() {
+    return this.position;
+  }
+
+  get image() {
+    return this.brickImage;
+  }
+
+  get energy() {
+    return this.brickEnergy;
+  } // Setters
+
+
+  set energy(energy) {
+    this.brickEnergy = energy;
+  }
+
+}
+
+exports.Brick = Brick;

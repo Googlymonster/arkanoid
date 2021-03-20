@@ -1,0 +1,24 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.createBricks = createBricks;
+
+var _Brick = require("./sprites/Brick");
+
+var _setup = require("./setup");
+
+function createBricks() {
+  return _setup.LEVEL.reduce((ack, element, i) => {
+    const row = Math.floor((i + 1) / _setup.STAGE_COLS);
+    const col = i % _setup.STAGE_COLS;
+    const x = _setup.STAGE_PADDING + col * (_setup.BRICK_WIDTH + _setup.BRICK_PADDING);
+    const y = _setup.STAGE_PADDING + row * (_setup.BRICK_HEIGHT + _setup.BRICK_PADDING);
+    if (element === 0) return ack;
+    return [...ack, new _Brick.Brick(_setup.BRICK_WIDTH, _setup.BRICK_HEIGHT, {
+      x,
+      y
+    }, _setup.BRICK_ENERGY[element], _setup.BRICK_IMAGES[element])];
+  }, []);
+}

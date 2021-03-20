@@ -1,0 +1,75 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.LEVEL = exports.BRICK_ENERGY = exports.BRICK_IMAGES = exports.BALL_STARTY = exports.BALL_STARTX = exports.BALL_SIZE = exports.BALL_SPEED = exports.PADDLE_SPEED = exports.PADDLE_STARTX = exports.PADDLE_HEIGHT = exports.PADDLE_WIDTH = exports.BRICK_HEIGHT = exports.BRICK_WIDTH = exports.BRICK_PADDING = exports.STAGE_COLS = exports.STAGE_ROWS = exports.STAGE_PADDING = void 0;
+
+var _brickRed = _interopRequireDefault(require("url:./images/brick-red.png"));
+
+var _brickBlue = _interopRequireDefault(require("url:./images/brick-blue.png"));
+
+var _brickGreen = _interopRequireDefault(require("url:./images/brick-green.png"));
+
+var _brickYellow = _interopRequireDefault(require("./images/brick-yellow.png"));
+
+var _brickPurple = _interopRequireDefault(require("./images/brick-purple.png"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+// Grab the canvas element for calculating the brick width
+// depending on canvas width
+const canvas = document.querySelector('#playField'); // Constants
+
+const STAGE_PADDING = 10;
+exports.STAGE_PADDING = STAGE_PADDING;
+const STAGE_ROWS = 20;
+exports.STAGE_ROWS = STAGE_ROWS;
+const STAGE_COLS = 10;
+exports.STAGE_COLS = STAGE_COLS;
+const BRICK_PADDING = 5;
+exports.BRICK_PADDING = BRICK_PADDING;
+const BRICK_WIDTH = canvas ? Math.floor((canvas.width - STAGE_PADDING * 2) / STAGE_COLS) - BRICK_PADDING : 100;
+exports.BRICK_WIDTH = BRICK_WIDTH;
+const BRICK_HEIGHT = canvas ? Math.floor((canvas.height - STAGE_PADDING * 2) / STAGE_ROWS) - BRICK_PADDING : 30;
+exports.BRICK_HEIGHT = BRICK_HEIGHT;
+const PADDLE_WIDTH = 150;
+exports.PADDLE_WIDTH = PADDLE_WIDTH;
+const PADDLE_HEIGHT = 25;
+exports.PADDLE_HEIGHT = PADDLE_HEIGHT;
+const PADDLE_STARTX = 450;
+exports.PADDLE_STARTX = PADDLE_STARTX;
+const PADDLE_SPEED = 10;
+exports.PADDLE_SPEED = PADDLE_SPEED;
+const BALL_SPEED = 5;
+exports.BALL_SPEED = BALL_SPEED;
+const BALL_SIZE = 20;
+exports.BALL_SIZE = BALL_SIZE;
+const BALL_STARTX = 500;
+exports.BALL_STARTX = BALL_STARTX;
+const BALL_STARTY = 400;
+exports.BALL_STARTY = BALL_STARTY;
+const BRICK_IMAGES = {
+  1: _brickRed.default,
+  2: _brickGreen.default,
+  3: _brickYellow.default,
+  4: _brickBlue.default,
+  5: _brickPurple.default
+};
+exports.BRICK_IMAGES = BRICK_IMAGES;
+const BRICK_ENERGY = {
+  1: 1,
+  // Red brick
+  2: 1,
+  // Green brick
+  3: 2,
+  // Yellow brick
+  4: 2,
+  // Blue brick
+  5: 3 // Purple brick
+
+}; // prettier-ignore
+
+exports.BRICK_ENERGY = BRICK_ENERGY;
+const LEVEL = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 2, 2, 2, 2, 2, 2, 2, 2, 0, 0, 3, 3, 3, 3, 3, 3, 3, 3, 0, 0, 0, 4, 4, 4, 4, 4, 4, 0, 0, 0, 0, 5, 5, 0, 0, 5, 5, 0, 0];
+exports.LEVEL = LEVEL;
